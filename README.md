@@ -26,7 +26,7 @@ Please note: this program currently is only intended to be used on and against L
 
 ## Requirements
 
-All of the Python libraries used should be included in base Python. You will need a copy of `nc`. The program will attempt to find it automatically. If it can't, please specify the path with the `--nc` flag.
+Install the required python modules with pip (`pip3 install -r requirements.txt`.) You will need a local copy of `nc`. The program will attempt to find it automatically. If it can't, please specify the path with the `--nc` flag.
 
 ## Adding New Payloads
 
