@@ -12,9 +12,7 @@ def get_ip(interfaces: dict, provided_inteface: str) -> str:
         print("No interface provided. Defaulting to localhost.")
         return "127.0.0.1"
     else:
-        print(
-            f"{selected} selected. Address to use is {interfaces[selected][0].address}"
-        )
+        print(f"{selected} selected. Address to use is {interfaces[selected][0].address}")
         return interfaces[selected][0].address
 
 

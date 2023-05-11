@@ -1,8 +1,9 @@
 import argparse
-from modules import connection, flags, commands, local
-import psutil
 import subprocess
 
+import psutil
+
+from modules import commands, connection, flags, local
 
 parser = argparse.ArgumentParser()
 parser = flags.setup(parser)

