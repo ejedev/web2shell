@@ -51,4 +51,5 @@ def setup(parser):
         required=False,
         default=None,
     )
+    parser.add_argument("--verbose", help="verbose command output", required=False, action="store_true")
     return parser
