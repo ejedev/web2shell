@@ -5,7 +5,10 @@ import psutil
 
 from modules import commands, connection, flags, local
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(
+    prog="web2shell",
+    description="Automate converting webshells into reverse shells.",
+)
 parser = flags.setup(parser)
 results = parser.parse_args()
 flags.splash()

@@ -7,16 +7,20 @@ Credit for the reverse shells goes to [PayloadAllTheThings.](https://github.com/
 ## Usage
 
 ```
-usage: web2shell.py [-h] --url URL [--interface INTERFACE] [--force FORCE] [--ip IP] [--port PORT] [--nc NC]
+usage: web2shell [-h] [-i INTERFACE] [--force] [--ip IP] [--port PORT] [--nc NC] url
+
+Automate converting webshells into reverse shells.
+
+positional arguments:
+  url                   webshell URL, replace the provided command with "SHELL". ex: https://example.com/shell.php?cmd=SHELL
 
 options:
   -h, --help            show this help message and exit
-  --url URL             webshell URL, replace the provided command with "SHELL". ex: https://example.com/shell.php?cmd=SHELL
-  --interface INTERFACE
+  -i INTERFACE, --interface INTERFACE
                         the interface to use when listening for a remote shell. Default is localhost.
-  --force FORCE         force command execution even if initial check is invalid, must be true or false
-  --ip IP               IP address of your own listener (skips listener setup)
-  --port PORT           port of your own listener (skips listener setup)
+  --force               force command execution even if initial check is invalid
+  --ip IP               IP address of your own listener (skips listener setup if both IP and port are set)
+  --port PORT           port of your own listener
   --nc NC               path to local nc binary
 ```
 
