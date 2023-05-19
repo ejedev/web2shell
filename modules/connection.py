@@ -1,5 +1,6 @@
 import socket
 
+from data import types
 from modules import logger
 
 
@@ -7,7 +8,7 @@ def get_ip(interfaces: dict, provided_inteface: str) -> str:
     logger.log("Available interfaces...")
     selected = None
     for interface in interfaces:
-        logger.log(interface, logger.Types.SUCCESS)
+        logger.log(interface, types.Status.SUCCESS)
         if provided_inteface == interface:
             selected = interface
     if selected is None:
@@ -24,9 +25,9 @@ def get_port(ip: str) -> int:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.bind((ip, port))
-            logger.log(f"{port} available!", logger.Types.SUCCESS)
+            logger.log(f"{port} available!", types.Status.SUCCESS)
             s.close()
             return port
         except:
-            logger.log(f"{port} already in use or unavailable.", logger.Types.ERROR)
+            logger.log(f"{port} already in use or unavailable.", types.Status.ERROR)
     return -1

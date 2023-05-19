@@ -1,18 +1,27 @@
-from enum import Enum
+from data import types
 
 
-class Types(Enum):
-    ALERT = "[!]"
-    ERROR = "[x]"
-    SUCCESS = "[-]"
-    VERBOSE = "[*]"
-    NONE = ""
+def splash():
+    print(
+        """
+               o                  o           o  o
+               O     .oOOo.       O           O  O
+               O          O       o           o  o
+               o          o       O           O  O
+'o     O .oOo. OoOo.     O' .oOo  OoOo. .oOo. o  o
+ O  o  o OooO' O   o    O   `Ooo. o   o OooO' O  O
+ o  O  O O     o   O  .O        O o   O O     o  o
+ `Oo'oO' `OoO' `OoO' oOoOoO `OoO' O   o `OoO' Oo Oo
+---------------------------------------------------
+                      @ejedev
+        """
+    )
 
 
-def log(message: str, type: Types = Types.NONE, verbose: bool = False, verbosity: bool = False):
+def log(message: str, type: types.Status = types.Status.NONE, verbose: bool = False, verbosity: bool = False):
     if verbose and not verbosity:
         pass
-    elif type == Types.NONE:
+    elif type == types.Status.NONE:
         print(message)
     else:
         print(f"{type.value} {message}")

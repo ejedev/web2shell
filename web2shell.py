@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(
 )
 parser = flags.setup(parser)
 results = parser.parse_args()
-flags.splash()
+logger.splash()
 if not results.force:
     logger.log("Verifying commands can be executed...")
     if not commands.verify(results.url, results.verbose):

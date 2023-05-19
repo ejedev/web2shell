@@ -1,20 +1,3 @@
-def splash():
-    print(
-        """
-               o                  o           o  o
-               O     .oOOo.       O           O  O
-               O          O       o           o  o
-               o          o       O           O  O
-'o     O .oOo. OoOo.     O' .oOo  OoOo. .oOo. o  o
- O  o  o OooO' O   o    O   `Ooo. o   o OooO' O  O
- o  O  O O     o   O  .O        O o   O O     o  o
- `Oo'oO' `OoO' `OoO' oOoOoO `OoO' O   o `OoO' Oo Oo
----------------------------------------------------
-                      @ejedev
-        """
-    )
-
-
 def setup(parser):
     parser.add_argument(
         "url",
