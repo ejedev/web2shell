@@ -13,7 +13,7 @@ def splash():
  o  O  O O     o   O  .O        O o   O O     o  o
  `Oo'oO' `OoO' `OoO' oOoOoO `OoO' O   o `OoO' Oo Oo
 ---------------------------------------------------
-                      @ejedev
+                v0.1.1   @ejedev
         """
     )
 

