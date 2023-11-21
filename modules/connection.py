@@ -4,10 +4,6 @@ from data import types
 from modules import logger
 
 
-def prompt_for_interface():
-    print(1)
-
-
 def get_ip(interfaces: dict, provided_inteface: str) -> str:
     logger.log("Available interfaces...")
     selected = None
