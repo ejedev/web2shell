@@ -4,6 +4,10 @@ from data import types
 from modules import logger
 
 
+def prompt_for_interface():
+    print(1)
+
+
 def get_ip(interfaces: dict, provided_inteface: str) -> str:
     logger.log("Available interfaces...")
     selected = None
@@ -12,11 +16,16 @@ def get_ip(interfaces: dict, provided_inteface: str) -> str:
         if provided_inteface == interface:
             selected = interface
     if selected is None:
-        logger.log("No interface provided. Defaulting to localhost.")
-        return "127.0.0.1"
-    else:
-        logger.log(f"{selected} selected. Address to use is {interfaces[selected][0].address}")
-        return interfaces[selected][0].address
+        logger.log("No interface provided. Please enter the name of an available interface or 'exit' to quit:")
+        while selected is None:
+            inputed = input("> ")
+            if inputed.lower() == "exit":
+                quit()
+            else:
+                if inputed in interfaces:
+                    selected = inputed
+    logger.log(f"{selected} selected. Address to use is {interfaces[selected][0].address}")
+    return interfaces[selected][0].address
 
 
 def get_port(ip: str) -> int:

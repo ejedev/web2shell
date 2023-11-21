@@ -7,7 +7,7 @@ def setup(parser):
     parser.add_argument(
         "-i",
         "--interface",
-        help="the interface to use when listening for a remote shell. Default is localhost.",
+        help="the interface to use when listening for a remote shell. If none is provided you will be prompted to select one.",
         type=str,
         required=False,
         default="",
