@@ -7,7 +7,7 @@ Credit for the reverse shells goes to [PayloadAllTheThings.](https://github.com/
 ## Usage
 
 ```
-usage: web2shell [-h] [-i INTERFACE] [--force] [--ip IP] [--port PORT] [--nc NC] [--verbose] url
+usage: web2shell [-h] [-v] [-i INTERFACE] [--force] [--ip IP] [--port PORT] [--nc NC] [--only [ONLY ...]] url
 
 Automate converting webshells into reverse shells.
 
@@ -16,13 +16,14 @@ positional arguments:
 
 options:
   -h, --help            show this help message and exit
+  -v, --verbose         verbose command output
   -i INTERFACE, --interface INTERFACE
                         the interface to use when listening for a remote shell. If none is provided you will be prompted to select one.
   --force               force command execution even if initial check is invalid
   --ip IP               IP address of your own listener (skips listener setup if both IP and port are set)
   --port PORT           port of your own listener
   --nc NC               path to local nc binary
-  --verbose             verbose command output
+  --only [ONLY ...]     list of bins to test, ignores all others. ex: --only python php node
 ```
 
 Providing an IP and port will cause the program to skip the listener setup and assume you already have netcat/a comparable listener running at that address.

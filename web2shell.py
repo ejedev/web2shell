@@ -41,7 +41,7 @@ else:
     port = results.port
 logger.log(f"Final connection string will be {ip}:{port}...")
 logger.log("Finding bins...")
-bins = commands.find_bins(results.url, results.verbose, list(payloads.bins.keys()))
+bins = commands.find_bins(results.url, results.verbose, list(payloads.bins.keys()), results.only)
 logger.log("Finding shells...")
 shells = commands.find_bins(results.url, results.verbose, payloads.shells)
 if len(bins) < 1:
