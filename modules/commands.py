@@ -15,9 +15,12 @@ def execute(url: str, command: str) -> str:
     return data.text
 
 
-def find_bins(url: str, verbose: bool, bins: list) -> list:
+def find_bins(url: str, verbose: bool, bins: list, only: list = []) -> list:
     valid = []
     for bin in bins:
+        if len(only) > 0:
+            if bin not in only:
+                continue
         result = execute(url, f"whereis {bin}")
         logger.log(result, types.Status.VERBOSE, True, verbose)
         for path in result.split(" "):

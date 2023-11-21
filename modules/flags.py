@@ -4,10 +4,11 @@ def setup(parser):
         help='webshell URL, replace the provided command with "SHELL". ex: https://example.com/shell.php?cmd=SHELL',
         type=str,
     )
+    parser.add_argument("-v", "--verbose", help="verbose command output", required=False, action="store_true")
     parser.add_argument(
         "-i",
         "--interface",
-        help="the interface to use when listening for a remote shell. Default is localhost.",
+        help="the interface to use when listening for a remote shell. If none is provided you will be prompted to select one.",
         type=str,
         required=False,
         default="",
@@ -34,5 +35,12 @@ def setup(parser):
         required=False,
         default=None,
     )
-    parser.add_argument("--verbose", help="verbose command output", required=False, action="store_true")
+    parser.add_argument(
+        "--only",
+        help="list of bins to test, ignores all others. ex: --only python php",
+        nargs="*",
+        type=str,
+        required=False,
+        default=[],
+    )
     return parser
