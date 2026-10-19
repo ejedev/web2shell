@@ -2,8 +2,7 @@ from data import types
 
 
 def splash():
-    print(
-        """
+    print("""
                o                  o           o  o
                O     .oOOo.       O           O  O
                O          O       o           o  o
@@ -14,8 +13,7 @@ def splash():
  `Oo'oO' `OoO' `OoO' oOoOoO `OoO' O   o `OoO' Oo Oo
 ---------------------------------------------------
                 v0.1.2   @ejedev
-        """
-    )
+        """)
 
 
 def log(message: str, type: types.Status = types.Status.NONE, verbose: bool = False, verbosity: bool = False):
